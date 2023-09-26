@@ -13,7 +13,7 @@ app.use('/api', routes);
 
 app.use((err, req, res, next) => {
   console.error(err); // Log the error for debugging
-  res.status(500).json({ message: 'Internal Server Error' });
+  res.status(500).json({ message: err.message });
 });
 
 sequelize

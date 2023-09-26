@@ -22,7 +22,7 @@ const User = sequelize.define('users', {
     defaultValue: 'Manager',
     allowNull: false,
   },
-  isArchive: {
+  is_archived: {
     type: DataTypes.BOOLEAN,
     defaultValue: false,
     allowNull: false,

@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const userController = require('../controllers/userController');
+const joiSchema = require('../validations/userValidation');
+const { validator } = require('../utility/common');
 
 // Get all users
 router.get('/', userController.getAllUsers);
@@ -20,7 +22,7 @@ router.get('/role/:role', userController.getUsersByRole);
 router.get('/search/:letters', userController.getUsersByNameOrEmail);
 
 // Update a specific user by ID
-router.put('/:id', userController.updateUser);
+router.put('/:id', validator(joiSchema.updateUserSchema), userController.updateUser);
 
 // Archive a specific user by ID
 router.put('/archive/:id', userController.archiveUser);

@@ -17,12 +17,7 @@ const updateUserSchema = Joi.object({
   email: Joi.string().email(),
   password: Joi.string().min(6),
   role: Joi.string().valid('Admin', 'Owner', 'Manager'),
-  isArchive: Joi.boolean(),
-}).or('name', 'email', 'password', 'role', 'isArchive');
+  is_archived: Joi.boolean(),
+}).or('name', 'email', 'password', 'role', 'is_archived');
 
-module.exports = {
-  signupSchema,
-  loginSchema,
-  updateUserSchema,
-};
-
+module.exports = { signupSchema, loginSchema, updateUserSchema };
